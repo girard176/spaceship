@@ -12,16 +12,17 @@
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-        <h1>Spaceship!</h1>
-        <div>
-            <p>So you want to go to space but you're picy on comfort and flight entertainment? Pick a spaceship in the list bellow to find the perfect ride to space!</p>
-            <select>
-                <option>Test Option</option>
-            </select>
-            <input type="button" value="Launch!">
-        </div>
-        <div>
-            <img src="" alt="">
+        <div id="bg">
+                <h1>Spaceship!</h1>
+            <div class="panel">
+                <p>So you want to go to space but you're picy on comfort and flight entertainment? Pick a spaceship in the list bellow to find the perfect ride to space!</p>
+                <select name="spacecraft" id="spacecraft_list"></select>
+                <input type="button" value="Launch!">
+            </div>
+            <div class="panel">
+                <img id="vessel_image">
+            </div>
         </div>
     </body>
 </html>
+<script src="spacecraft.js"></script>
