@@ -5,7 +5,7 @@
 
 // variables
 const shipListUrl = "https://ll.thespacedevs.com/2.2.0/config/spacecraft/";
-const shipList = document.getElementByID("ship-list"); 
+const shipList = document.getElementByID("shipList"); 
 
 // when the page load
 window.addEventListener("load", updateShipList);
@@ -18,13 +18,13 @@ async function getShipList(){
 // add spaceships to drop down list
 function updateShipList(){
     getShipList().then(function(data){
-        //get each ship name
-        for(element in data.message){
-            // append to the select list
-            let option = createOption(element);
-            shipList.appendChild(option);
+            //get each ship name
+            for(element in data.message){
+                // append to the select list
+                let option = createOption(element);
+                shipList.appendChild(option);
+            }
         }
-    }
     );
 }
 
