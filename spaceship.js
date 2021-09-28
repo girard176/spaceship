@@ -1,11 +1,13 @@
 /*
     Author: Andre
     JavaScript for the spaceship website
+    API ref: https://thespacedevs.com/llapi
 */
 
 // variables
+//const shipListUrl = "https://dog.ceo/api/breeds/list/all";
 const shipListUrl = "https://ll.thespacedevs.com/2.2.0/config/spacecraft/";
-const shipList = document.getElementByID("shipList"); 
+const shipList = document.getElementById("ship-list"); 
 
 // when the page load
 window.addEventListener("load", updateShipList);
