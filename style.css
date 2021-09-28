@@ -1,0 +1,56 @@
+/*
+    Author: Andre
+    Styling for the spaceship website
+*/
+
+*{
+    color:gray;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+html, body{
+    height: 100%;
+    margin: 0px;
+    background-color: black;
+}
+
+h1{
+  font-size: 8em;
+  margin: 0;
+  padding: 0.5em;
+  color: white;
+}
+
+p{
+    padding: 1em;
+    font-size: 1em;
+}
+
+#bg{
+    background-image: url(orbit.jpg);
+    height: 125%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.panel{
+    width: 75%;
+    height: auto;
+    margin: auto;
+    padding: 1em;
+    border-radius: 10px;
+    background-color: whitesmoke;
+}
+
+#spacecraft_list{
+    display:block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 80%;
+    margin-bottom: 2em;
+}
+
+#image-container{
+    display:none;
+}
