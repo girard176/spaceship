@@ -6,7 +6,8 @@
 
 // variables
 //const shipListUrl = "https://dog.ceo/api/breeds/list/all";
-const shipListUrl = "https://ll.thespacedevs.com/2.2.0/config/spacecraft/";
+const shipListUrl = "https://lldev.thespacedevs.com/2.2.0/config/spacecraft/";
+//const shipListUrl = "https://ll.thespacedevs.com/2.2.0/config/spacecraft/?name=&manufacturer=&in_use=true&human_rated=";
 const shipList = document.getElementById("ship-list"); 
 
 // when the page load
@@ -21,7 +22,8 @@ async function getShipList(){
 function updateShipList(){
     getShipList().then(function(data){
             //get each ship name
-            for(element in data.message){
+            console.log(data);
+            for(element in data.results){
                 // append to the select list
                 let option = createOption(element);
                 shipList.appendChild(option);
@@ -31,6 +33,7 @@ function updateShipList(){
 }
 
 function createOption(text){
+    //let option = document.createElement("option");
     let option = document.createElement("option");
     option.textContent = text;
     return option;
