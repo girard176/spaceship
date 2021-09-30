@@ -9,9 +9,15 @@ const shipDataUrl = "https://lldev.thespacedevs.com/2.2.0/config/spacecraft/?in_
 const shipList = document.getElementById("ship-list");
 const button = document.getElementById("getShip");
 
+var shipName = document.getElementById("ship-name")
+var shipAgency = document.getElementById("ship-agency")
+var shipCapability = document.getElementById("ship-capability")
+var shipMaidenFlight = document.getElementById("ship-maidenflight")
+var shipCrewCapacity = document.getElementById("ship-crewcapacity")
+var shipImage = document.getElementById("ship-image")
+var shipWiki = document.getElementById("ship-agency")
+
 var shipIndex = 0;
-const shipUrl = "https://lldev.thespacedevs.com/2.2.0/config/spacecraft/10/"
-const shipImage = document.getElementById("ship-image")
 
 // When the page load
 window.addEventListener("load", updateShipList);
@@ -24,6 +30,7 @@ async function getShipData(){
 // Add spaceships to drop down list
 function updateShipList(){
     getShipData().then(function(data){
+            console.log("Ship list: ")
             let option = createOption("Select a spaceship");
             shipList.appendChild(option);
         // Get each ship name
@@ -38,6 +45,7 @@ function updateShipList(){
 function createOption(text){
     let option = document.createElement("option");
     option.textContent = text;
+    console.log(option.text);
     return option;
 }
 
@@ -45,9 +53,9 @@ function createOption(text){
 shipList.addEventListener("change", function(){
     let ship = this.value;
     if (ship != "Select a spaceship"){
-        console.log(ship + " selected");
+        console.log("Ship selected: " + ship);
         shipIndex = this.options[this.selectedIndex].index;
-        console.log(shipIndex)
+        console.log("Ship index: " + shipIndex)
     }
 });
 
@@ -57,11 +65,17 @@ button.addEventListener("click", function(){
     selectShipData();
 });
 
-// Select spaceship data
+// Retreive spaceship data
 function selectShipData(){
     getShipData().then(function(data){
-        //get ship image
-        let image = createOption(data.results[shipIndex-1].image_url);
-        console.log(image.innerHTML);
+        console.log("Ship info: ")
+        let shipData = data.results[shipIndex-1];
+        shipName = createOption(shipData.name);
+        shipAgency = createOption(shipData.agency.name);
+        shipCapability = createOption(shipData.capability);
+        shipMaidenFlight = createOption(shipData.maiden_flight);
+        shipCrewCapacity = createOption(shipData.crew_capacity);
+        shipImage = createOption(shipData.image_url);
+        shipWiki = createOption(shipData.wiki_link);
     })
 }
